@@ -394,3 +394,10 @@ code {
 .badge .dot.custom {
   background: rgba(156,163,175,.95);
 }
+
+.footer-center{
+  text-align: center;
+  padding-top: 18px;
+  opacity: 0.9;
+}
+
