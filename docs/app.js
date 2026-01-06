@@ -16,7 +16,7 @@ const DEFAULTS = {
 };
 
 const MAX_PAYBACK_DISPLAY = 15; // for display in KPIs
-const MAX_PAYBACK_HEATMAP = 15; // cap for heatmap scale
+const MAX_PAYBACK_HEATMAP = 40; // cap for heatmap scale
 const HEATMAP_GRID_STEP = 5;    // % increments for heatmap
 
 function $(id) { return document.getElementById(id); }
