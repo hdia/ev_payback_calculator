@@ -279,9 +279,11 @@ function plotCumulative(pair, st) {
 
 function buildUI(pairs, state) {
   const root = document.querySelector(".container");
+
   root.innerHTML = `
-    <div class="grid">
-      <div>
+    <div class="grid3">
+      <!-- LEFT: KPIs + Summary + Charts -->
+      <div class="col-main">
         <div class="card">
           <div class="kpis">
             <div class="kpi">
@@ -306,25 +308,47 @@ function buildUI(pairs, state) {
           <hr class="sep" />
 
           <h2>How payback changes with home charging</h2>
-          <div class="note">This is the same vehicle pair and prices, varying only the home charging share.</div>
+          <div class="note">
+            Same vehicle pair and prices, varying only the home charging share.
+          </div>
           <div id="chart-payback" class="chart small"></div>
 
           <hr class="sep" />
 
           <h2>Cumulative net savings over time</h2>
-          <div class="note">Net savings relative to paying the upfront premium today (running costs only).</div>
+          <div class="note">
+            Net savings relative to paying the upfront premium today (running costs only).
+          </div>
           <div id="chart-cumulative" class="chart small"></div>
         </div>
       </div>
 
-      <div>
+      <!-- MIDDLE: Heatmap -->
+      <div class="col-heatmap">
+        <div class="card">
+          <h2>Payback map</h2>
+          <div class="note">
+            Home charging share vs annual kilometres. Payback is capped at 15 years.
+            Grey indicates no running-cost payback.
+          </div>
+
+          <div id="chart-heatmap" class="chart heatmap"></div>
+
+          <div class="note subtle" style="margin-top:12px">
+            Tip: Keep an eye on this map while adjusting the sliders, it shows why charging access can dominate payback.
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Inputs -->
+      <div class="col-inputs">
         <div class="card">
           <h2>Inputs</h2>
 
           <div class="field">
             <label>Vehicle pair</label>
             <select id="pair"></select>
-            <div class="note">These are the five EV vs petrol/hybrid pairs used in the article.</div>
+            <div class="note">Five EV vs petrol/hybrid pairs used in the article.</div>
           </div>
 
           <div class="field">
@@ -371,7 +395,7 @@ function buildUI(pairs, state) {
 
           <div class="field">
             <label><input type="checkbox" id="rw" /> Apply real-world adjustment (EV +10%, ICE +15%)</label>
-            <div class="note">Optional, defaults use official label figures.</div>
+            <div class="note">Optional. Defaults use official label figures.</div>
           </div>
 
           <div class="pills">
@@ -379,24 +403,30 @@ function buildUI(pairs, state) {
             <button class="btn" id="btn-copy">Copy summary</button>
             <button class="btn" id="btn-reset">Reset</button>
           </div>
-
-          <hr class="sep" />
-
-          <h2>Payback map (home charging vs annual km)</h2>
-          <div class="note">This visualises how payback depends on charging access and usage intensity. Payback is capped at 15 years. Grey indicates no running-cost payback. </div>
-          <div id="chart-heatmap" class="chart"></div>
-
-          <div class="note" style="margin-top:12px">
-            Includes: energy costs (electricity vs petrol) and a conservative servicing difference. <br>
-            Excludes: resale value, depreciation, insurance, finance costs, registration discounts, and rebates. <br>
-            Figures are indicative and depend heavily on charging access and energy prices.
-          </div>
         </div>
       </div>
     </div>
 
-    <div class="footer">
-      Built by Swinburne University of Technology. Data inputs based on Australian label figures (ADR 81/02) and transparent baseline energy prices.
+    <!-- Bottom notes row -->
+    <div class="notes-row">
+      <div class="card">
+        <h2>What this tool includes (and excludes)</h2>
+
+        <div class="note">
+          <b>Includes:</b> energy costs (electricity vs petrol) and a conservative servicing difference.
+          <br>
+          <b>Excludes:</b> resale value and depreciation, insurance, finance costs, government rebates, stamp duty concessions, registration discounts.
+          <br><br>
+          <b>Interpretation:</b> “N/A” means the EV has no running-cost advantage under that scenario (so there is no running-cost payback).
+          <br><br>
+          <b>Data basis:</b> Vehicle energy-use inputs are based on Australian new-vehicle label figures (ADR 81/02).
+          Baseline energy prices match the article defaults, but can be adjusted for your local tariff and charging access.
+        </div>
+
+        <div class="footer">
+          Built by Swinburne University of Technology. Data inputs based on Australian label figures (ADR 81/02) and transparent baseline energy prices.
+        </div>
+      </div>
     </div>
   `;
 
@@ -410,6 +440,8 @@ function buildUI(pairs, state) {
     sel.appendChild(opt);
   }
 }
+
+
 
 function getStateFromUI() {
   return {
