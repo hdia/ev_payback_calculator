@@ -16,7 +16,7 @@ const DEFAULTS = {
 };
 
 const MAX_PAYBACK_DISPLAY = 15; // for display in KPIs
-const MAX_PAYBACK_HEATMAP = 40; // cap for heatmap scale
+const MAX_PAYBACK_HEATMAP = 15; // cap for heatmap scale
 const HEATMAP_GRID_STEP = 5;    // % increments for heatmap
 
 function $(id) { return document.getElementById(id); }
@@ -153,26 +153,40 @@ function renderSummary(pair, st, res) {
 /* ------------------- Charts ------------------- */
 
 function plotHeatmap(pair, st) {
-  // heatmap over annual_km (x) and home_share (y)
+  // Heatmap over annual_km (x) and home_share (y)
+
   const x = [];
   for (let km = 10000; km <= 20000; km += 1000) x.push(km);
 
   const y = [];
   for (let h = 0; h <= 100; h += HEATMAP_GRID_STEP) y.push(h);
 
+  // z contains payback years, with:
+  // - null for N/A (no running-cost advantage)
+  // - capped at MAX_PAYBACK_HEATMAP for colour scaling consistency
   const z = y.map(home => {
     return x.map(km => {
       const st2 = { ...st, home_share: home, annual_km: km };
       const res = compute(pair, st2);
-      if (res.annual_savings <= 0) return null; // show gaps
+
+      if (!res || res.annual_savings <= 0 || res.payback === null || res.payback === undefined) {
+        return null; // show as gaps (N/A)
+      }
+
       return Math.min(res.payback, MAX_PAYBACK_HEATMAP);
     });
   });
 
   const trace = {
     type: "heatmap",
-    x, y, z,
-    hovertemplate: "Home charging: %{y}%<br>Annual km: %{x:,}<br>Payback: %{z:.1f} yrs<extra></extra>",
+    x,
+    y,
+    z,
+    hoverongaps: false,
+    hovertemplate:
+      "Home charging: %{y}%<br>" +
+      "Annual km: %{x:,}<br>" +
+      "Payback: %{z:.1f} yrs<extra></extra>",
     colorbar: { title: "Payback (yrs)" },
     zmin: 0,
     zmax: MAX_PAYBACK_HEATMAP,
@@ -192,6 +206,7 @@ function plotHeatmap(pair, st) {
 
   Plotly.react("chart-heatmap", [trace], layout, config);
 }
+
 
 function plotPaybackCurve(pair, st) {
   const xs = [];
