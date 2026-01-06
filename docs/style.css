@@ -128,15 +128,6 @@ a {
   background: rgba(34, 197, 94, 0.12);
 }
 
-/* ---------------- Layout ---------------- */
-
-.grid {
-  display: grid;
-  grid-template-columns: 1.55fr 0.85fr;
-  gap: 18px;
-  padding-top: 18px;
-}
-
 /* ---------------- Layout: 3-column dashboard ---------------- */
 
 .grid3 {
