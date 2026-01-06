@@ -320,4 +320,6 @@ async def main():
 
     await refresh(pairs_by_id)
 
-await main()
+import asyncio
+asyncio.ensure_future(main())
+
