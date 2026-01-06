@@ -424,7 +424,7 @@ function buildUI(pairs, state) {
         </div>
                     
         <div class="footer footer-center">
-          Research tool developed by Swinburne University of Technology.
+          Research tool developed by Swinburne University of Technology to support evidence-based EV cost comparisons. Figures are indicative and for informational purposes.
         </div>    
       </div>
     </div>
