@@ -419,12 +419,11 @@ function buildUI(pairs, state) {
            <br><br>
            <strong>What’s included:</strong> energy costs (electricity vs petrol) and a conservative servicing difference.<br>
            <strong>What’s excluded:</strong> resale value, depreciation, insurance, finance costs, registration discounts, and rebates.<br>
-           Data inputs are based on Australian label figures (ADR 81/02) and transparent baseline energy prices.<br>
-           Figures are indicative and depend heavily on charging access and energy prices.
+           Data inputs are based on Australian label figures (ADR 81/02) and transparent baseline energy prices.           
         </div>
                     
         <div class="footer footer-center">
-          Research tool developed by Swinburne University of Technology to support evidence-based EV cost comparisons. Figures are indicative and for informational purposes.
+          Research tool developed by Swinburne University of Technology to support evidence-based EV cost comparisons. Figures are indicative for informational purposes only and depend heavily on charging access and energy prices.
         </div>    
       </div>
     </div>
