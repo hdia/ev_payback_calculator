@@ -384,3 +384,13 @@ hr.sep {
 code {
   font-family: var(--mono);
 }
+
+
+.badge.custom {
+  border-color: rgba(255,255,255,.14);
+  color: rgba(229,231,235,.75);
+}
+
+.badge .dot.custom {
+  background: rgba(156,163,175,.95);
+}
