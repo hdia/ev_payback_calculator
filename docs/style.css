@@ -1,1 +1,354 @@
-:root{--bg:#0b1220;--card:#0f1b33;--card2:#101d38;--text:#e5e7eb;--muted:#9ca3af;--accent:#22c55e;--accent2:#60a5fa;--danger:#ef4444;--border:rgba(255,255,255,.08);--shadow:0 10px 30px rgba(0,0,0,.35);--radius:18px;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;--sans:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:var(--sans);background:radial-gradient(1200px 600px at 10% 0%,rgba(34,197,94,.18),transparent 60%),radial-gradient(900px 500px at 95% 10%,rgba(96,165,250,.16),transparent 55%),var(--bg);color:var(--text)}a{color:var(--accent2)}.container{max-width:1200px;margin:0 auto;padding:24px}.topbar{position:sticky;top:0;z-index:10;backdrop-filter:blur(10px);background:rgba(11,18,32,.65);border-bottom:1px solid var(--border)}.topbar .inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 24px}.brand{display:flex;flex-direction:column;gap:2px}.brand h1{font-size:18px;margin:0;letter-spacing:.2px}.brand .sub{font-size:12px;color:var(--muted)}.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid var(--border);border-radius:999px;font-size:12px;color:var(--muted)}.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.btn{border:1px solid var(--border);background:rgba(255,255,255,.04);color:var(--text);padding:9px 12px;border-radius:12px;cursor:pointer;font-size:13px}.btn:hover{background:rgba(255,255,255,.07)}.btn.primary{border-color:rgba(34,197,94,.35);background:rgba(34,197,94,.12)}.grid{display:grid;grid-template-columns:1.55fr .85fr;gap:18px;padding-top:18px}@media (max-width:980px){.grid{grid-template-columns:1fr}}.card{background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.02));border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px}.card h2{margin:0 0 10px 0;font-size:15px}.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px}@media (max-width:700px){.kpis{grid-template-columns:1fr}}.kpi{background:rgba(255,255,255,.035);border:1px solid var(--border);border-radius:16px;padding:12px}.kpi .label{font-size:12px;color:var(--muted)}.kpi .value{font-size:26px;margin-top:6px}.kpi .sub{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.3}.field{margin:10px 0}label{display:block;font-size:12px;color:var(--muted);margin-bottom:6px}select,input[type=number]{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:12px;padding:10px;color:var(--text);font-size:14px;outline:none}input[type=range]{width:100%}.split{display:grid;grid-template-columns:1fr 1fr;gap:10px}@media (max-width:520px){.split{grid-template-columns:1fr}}.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.pill{border:1px solid var(--border);border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer;color:var(--muted);background:rgba(255,255,255,.02)}.pill:hover{background:rgba(255,255,255,.06);color:var(--text)}.pill.active{border-color:rgba(34,197,94,.35);color:var(--text);background:rgba(34,197,94,.12)}.note{font-size:12px;color:var(--muted);line-height:1.45}.summary{margin-top:10px;padding:12px;border-radius:14px;border:1px solid var(--border);background:rgba(255,255,255,.03);line-height:1.4}hr.sep{border:none;border-top:1px solid var(--border);margin:14px 0}.chart{width:100%;height:360px}.chart.small{height:290px}.footer{padding:22px 0;color:var(--muted);font-size:12px}code{font-family:var(--mono)}
+:root {
+  --bg: #0b1220;
+  --card: #0f1b33;
+  --card2: #101d38;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #22c55e;
+  --accent2: #60a5fa;
+  --danger: #ef4444;
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --radius: 18px;
+
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --sans: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background:
+    radial-gradient(1200px 600px at 10% 0%, rgba(34, 197, 94, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 95% 10%, rgba(96, 165, 250, 0.16), transparent 55%),
+    var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: var(--accent2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* ---------------- Top bar ---------------- */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(11, 18, 32, 0.65);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand h1 {
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.brand .sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.badge .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ---------------- Buttons ---------------- */
+
+.btn {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  padding: 9px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.btn.primary {
+  border-color: rgba(34, 197, 94, 0.35);
+  background: rgba(34, 197, 94, 0.12);
+}
+
+/* ---------------- Layout ---------------- */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.55fr 0.85fr;
+  gap: 18px;
+  padding-top: 18px;
+}
+
+@media (max-width: 980px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------- Cards ---------------- */
+
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 16px;
+}
+
+.card h2 {
+  margin: 0 0 10px 0;
+  font-size: 15px;
+}
+
+/* ---------------- KPI blocks ---------------- */
+
+.kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 700px) {
+  .kpis {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kpi {
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.kpi .label {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.kpi .value {
+  font-size: 26px;
+  margin-top: 6px;
+}
+
+.kpi .sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 6px;
+  line-height: 1.3;
+}
+
+/* ---------------- Inputs ---------------- */
+
+.field {
+  margin: 10px 0;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 10px;
+  color: var(--text);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+select:hover,
+input[type="number"]:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+select:focus,
+input[type="number"]:focus {
+  border-color: rgba(96, 165, 250, 0.6);
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+/* Improve dropdown option contrast (important!) */
+select option {
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+/* Range sliders */
+input[type="range"] {
+  width: 100%;
+}
+
+/* Remove number spinners in Chrome/Edge/Safari for cleaner look */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ---------------- Split input rows ---------------- */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 520px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------- Pills (buttons row) ---------------- */
+
+.pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.pill {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.pill:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+}
+
+.pill.active {
+  border-color: rgba(34, 197, 94, 0.35);
+  color: var(--text);
+  background: rgba(34, 197, 94, 0.12);
+}
+
+/* ---------------- Notes and summary ---------------- */
+
+.note {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.summary {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  line-height: 1.4;
+}
+
+/* ---------------- Separators and charts ---------------- */
+
+hr.sep {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 14px 0;
+}
+
+.chart {
+  width: 100%;
+  height: 360px;
+}
+
+.chart.small {
+  height: 290px;
+}
+
+/* ---------------- Footer ---------------- */
+
+.footer {
+  padding: 22px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+code {
+  font-family: var(--mono);
+}
