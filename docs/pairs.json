@@ -1,0 +1,47 @@
+[
+  {
+    "id": "mg4_vs_corolla_hybrid",
+    "label": "MG4 Excite 51 (EV) vs Toyota Corolla Hybrid",
+    "ev_model": "MG4 Excite 51",
+    "ice_model": "Toyota Corolla Hybrid",
+    "upfront_premium_aud": 1890,
+    "ev_kwh_per_100km": 14.0,
+    "ice_l_per_100km": 4.1
+  },
+  {
+    "id": "atto3_vs_corolla_cross_hybrid",
+    "label": "BYD Atto 3 Essential (EV) vs Toyota Corolla Cross Hybrid",
+    "ev_model": "BYD Atto 3 Essential",
+    "ice_model": "Toyota Corolla Cross Hybrid",
+    "upfront_premium_aud": 2700,
+    "ev_kwh_per_100km": 16.0,
+    "ice_l_per_100km": 4.3
+  },
+  {
+    "id": "modely_vs_rav4_gx_hybrid",
+    "label": "Tesla Model Y RWD (EV) vs Toyota RAV4 GX Hybrid",
+    "ev_model": "Tesla Model Y RWD",
+    "ice_model": "Toyota RAV4 GX Hybrid",
+    "upfront_premium_aud": 12400,
+    "ev_kwh_per_100km": 15.0,
+    "ice_l_per_100km": 4.7
+  },
+  {
+    "id": "kona_ev_vs_kona_hybrid",
+    "label": "Hyundai Kona Electric Standard (EV) vs Hyundai Kona Hybrid",
+    "ev_model": "Hyundai Kona Electric Standard",
+    "ice_model": "Hyundai Kona Hybrid",
+    "upfront_premium_aud": 4790,
+    "ev_kwh_per_100km": 14.3,
+    "ice_l_per_100km": 3.9
+  },
+  {
+    "id": "ev5_vs_sportage_hybrid",
+    "label": "Kia EV5 Air Standard (EV) vs Kia Sportage Hybrid",
+    "ev_model": "Kia EV5 Air Standard",
+    "ice_model": "Kia Sportage Hybrid",
+    "upfront_premium_aud": 5170,
+    "ev_kwh_per_100km": 18.0,
+    "ice_l_per_100km": 5.3
+  }
+]
