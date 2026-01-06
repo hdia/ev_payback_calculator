@@ -412,17 +412,16 @@ function buildUI(pairs, state) {
       <div class="card">
         <h2>What this tool includes (and excludes)</h2>
 
-        <div class="note">
-          <b>Includes:</b> energy costs (electricity vs petrol) and a conservative servicing difference.
-          <br>
-          <b>Excludes:</b> resale value and depreciation, insurance, finance costs, government rebates, stamp duty concessions, registration discounts.
-          <br><br>
-          <b>Interpretation:</b> “N/A” means the EV has no running-cost advantage under that scenario (so there is no running-cost payback).
-          <br><br>
-          <b>Data basis:</b> Vehicle energy-use inputs are based on Australian new-vehicle label figures (ADR 81/02).
-          Baseline energy prices match the article defaults, but can be adjusted for your local tariff and charging access.
+        <div class="note" style="margin-top:12px">
+           <strong>Article baseline defaults:</strong><br>
+           15,000 km/year. 80% home charging. Home electricity 30c/kWh. Public fast charging 55c/kWh. Petrol $1.85/L.
+           Charging losses 10%. EV servicing saving $150/year. Real-world adjustment OFF.
+           <br><br>
+           <strong>What’s included:</strong> energy costs (electricity vs petrol) and a conservative servicing difference.<br>
+           <strong>What’s excluded:</strong> resale value, depreciation, insurance, finance costs, registration discounts, and rebates.<br>
+           Figures are indicative and depend heavily on charging access and energy prices.
         </div>
-
+        
         <div class="footer">
           Built by Swinburne University of Technology. Data inputs based on Australian label figures (ADR 81/02) and transparent baseline energy prices.
         </div>
