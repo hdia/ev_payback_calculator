@@ -471,6 +471,44 @@ function setUIFromState(st) {
   $("rw").checked = st.rw;
 }
 
+function isArticleDefaults(st) {
+  return (
+    st.pair_id === DEFAULTS.pair_id &&
+    Number(st.annual_km) === Number(DEFAULTS.annual_km) &&
+    Number(st.home_share) === Number(DEFAULTS.home_share) &&
+    Number(st.home_price) === Number(DEFAULTS.home_price) &&
+    Number(st.public_price) === Number(DEFAULTS.public_price) &&
+    Number(st.petrol) === Number(DEFAULTS.petrol) &&
+    Number(st.losses) === Number(DEFAULTS.losses) &&
+    Number(st.maint) === Number(DEFAULTS.maint) &&
+    Boolean(st.rw) === Boolean(DEFAULTS.rw)
+  );
+}
+
+function updateStatusBadge(st) {
+  const badge = document.getElementById("status-badge");
+  const dot = document.getElementById("status-dot");
+  const text = document.getElementById("status-text");
+  if (!badge || !dot || !text) return;
+
+  const isDefault = isArticleDefaults(st);
+
+  text.textContent = isDefault ? "Article defaults" : "Custom inputs";
+  badge.classList.toggle("custom", !isDefault);
+  dot.classList.toggle("custom", !isDefault);
+
+  badge.title = isDefault
+    ? "Using article baseline assumptions"
+    : "Custom inputs. Click to reset to article defaults";
+
+  // Optional nice behaviour: click badge to reset
+  badge.onclick = () => {
+    window.location.search = "";
+  };
+}
+
+
+
 function wireUI(pairsById) {
   const syncKm = () => { $("km").value = $("km-slider").value; refresh(pairsById); };
   $("km-slider").addEventListener("input", syncKm);
@@ -503,6 +541,8 @@ function wireUI(pairsById) {
 
 function refresh(pairsById) {
   const st = getStateFromUI();
+  updateStatusBadge(st);
+
   const pair = pairsById[st.pair_id];
   if (!pair) return;
 
