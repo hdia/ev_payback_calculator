@@ -137,11 +137,51 @@ a {
   padding-top: 18px;
 }
 
+/* ---------------- Layout: 3-column dashboard ---------------- */
+
+.grid3 {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr 0.95fr;
+  gap: 18px;
+  padding-top: 18px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .grid3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.col-main,
+.col-heatmap,
+.col-inputs {
+  min-width: 0;
+}
+
+.notes-row {
+  margin-top: 18px;
+}
+
+/* Heatmap sizing */
+.chart.heatmap {
+  height: 520px;
+}
+
+/* Subtle secondary note style */
+.note.subtle {
+  opacity: 0.9;
+}
+
+
 @media (max-width: 980px) {
   .grid {
     grid-template-columns: 1fr;
   }
 }
+
+
+
 
 /* ---------------- Cards ---------------- */
 
