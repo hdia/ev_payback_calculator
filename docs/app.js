@@ -383,11 +383,10 @@ function buildUI(pairs, state) {
           <hr class="sep" />
 
           <h2>Payback map (home charging vs annual km)</h2>
-          <div class="note">This visualises how payback depends on charging access and usage intensity.</div>
+          <div class="note">This visualises how payback depends on charging access and usage intensity. Payback is capped at 15 years. Grey indicates no running-cost payback. </div>
           <div id="chart-heatmap" class="chart"></div>
 
           <div class="note" style="margin-top:12px">
-            Payback is capped at 15 years. Grey indicates no running-cost payback. <br>
             Includes: energy costs (electricity vs petrol) and a conservative servicing difference. <br>
             Excludes: resale value, depreciation, insurance, finance costs, registration discounts, and rebates. <br>
             Figures are indicative and depend heavily on charging access and energy prices.
