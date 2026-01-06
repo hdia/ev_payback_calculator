@@ -425,9 +425,7 @@ function buildUI(pairs, state) {
                     
         <div class="footer footer-center">
           Research tool developed by Swinburne University of Technology.
-        </div>
-
-      
+        </div>    
       </div>
     </div>
   `;
