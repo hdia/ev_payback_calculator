@@ -4,7 +4,7 @@
 */
 
 const DEFAULTS = {
-  pair_id: "mg4_vs_corolla_cross_hybrid",
+  pair_id: "mg4_vs_corolla_hybrid",   
   annual_km: 15000,
   home_share: 80,      // %
   home_price: 30,      // c/kWh
