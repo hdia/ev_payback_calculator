@@ -326,7 +326,7 @@ function buildUI(pairs, state) {
       <!-- MIDDLE: Heatmap -->
       <div class="col-heatmap">
         <div class="card">
-          <h2>Payback map</h2>
+          <h2>Payback heatmap</h2>
           <div class="note">
             Home charging share vs annual kilometres. Payback is capped at 15 years.
             Grey indicates no running-cost payback.
@@ -335,7 +335,7 @@ function buildUI(pairs, state) {
           <div id="chart-heatmap" class="chart heatmap"></div>
 
           <div class="note subtle" style="margin-top:12px">
-            Tip: Keep an eye on this map while adjusting the sliders, it shows why charging access can dominate payback.
+            Tip: Keep an eye on this heatmap while you adjust prices - it shows how charging access can dominate payback.
           </div>
         </div>
       </div>
